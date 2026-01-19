@@ -89,6 +89,7 @@ export const Tree = forwardRef<HTMLUListElement | null, TreeProps>(
       expandOnSelect,
       size = 'lg',
       innerRef,
+      shouldShowSwitcher,
       ...rest
     },
     ref
@@ -189,6 +190,7 @@ export const Tree = forwardRef<HTMLUListElement | null, TreeProps>(
         onContextMenu,
         expandOnSelect,
         treeData,
+        shouldShowSwitcher,
       }),
       [
         onNodeSelect,
@@ -213,6 +215,7 @@ export const Tree = forwardRef<HTMLUListElement | null, TreeProps>(
         onContextMenu,
         expandOnSelect,
         treeData,
+        shouldShowSwitcher,
       ]
     )
 
@@ -481,6 +484,10 @@ export interface TreeProps {
    * 提供辅助方法的内部引用
    */
   innerRef?: React.Ref<TreeHelper>
+  /**
+   * 自定义切换器显示逻辑
+   */
+  shouldShowSwitcher?: (node: TreeNodeEventData) => boolean
 }
 
 if (__DEV__) {
